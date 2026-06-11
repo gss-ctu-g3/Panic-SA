@@ -80,8 +80,7 @@ Base URL:
 
 ### Delete Contact
 
-* [ ] DELETE /contacts/{contactId} - i am doing this
-
+* [ ] DELETE /contacts/{contactId}
 ## Validation
 
 * [ ] Validate phone numbers
