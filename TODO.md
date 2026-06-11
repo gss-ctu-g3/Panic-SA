@@ -239,7 +239,7 @@ Example:
 
 ---
 
-#The project is complete when:
+# The project is complete when:
 
 * [ ] Panic alerts can be triggered
 * [ ] GPS coordinates are captured correctly

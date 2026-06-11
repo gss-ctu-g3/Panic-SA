@@ -279,7 +279,7 @@ Base URL:
 
 ---
 
-#The project is considered complete when:
+# The project is considered complete when:
 
 * [ ] Users can manage emergency contacts
 * [ ] Panic button triggers alert
