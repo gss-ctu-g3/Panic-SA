@@ -16,15 +16,15 @@
 
 ---
 
-# Phase 2: Database Design
+# Phase 2: Database Design | Mthokozisi Vundla
 
-## Users Table
+## Users Table | Mthokozisi Vundla
 
 * [ ] Create users table
 * [ ] Add authentication fields
 * [ ] Add timestamps
 
-## Emergency Contacts Table
+## Emergency Contacts Table | Mthokozisi Vundla
 
 * [ ] Create emergency_contacts table
 * [ ] Link contact to user
@@ -35,14 +35,14 @@
   * [ ] Email
   * [ ] Relationship
 
-## Alerts Table
+## Alerts Table | Mthokozisi Vundla
 
 * [ ] Create alerts table
 * [ ] Store GPS coordinates
 * [ ] Store alert status
 * [ ] Store timestamps
 
-## Notification Logs Table
+## Notification Logs Table | Mthokozisi Vundla
 
 * [ ] Create notification_logs table
 * [ ] Store channel type
@@ -54,7 +54,7 @@
 
 ---
 
-# Phase 3: Contact Management Service
+# Phase 3: Contact Management Service | Mthokozisi Vundla
 
 Base URL:
 
@@ -62,23 +62,23 @@ Base URL:
 
 ## Endpoints
 
-### Create Contact
+### Create Contact | Mthokozisi Vundla
 
 * [ ] POST /contacts
 
-### Get User Contacts
+### Get User Contacts | Mthokozisi Vundla
 
 * [ ] GET /contacts/user/{userId}
 
-### Get Single Contact
+### Get Single Contact | Mthokozisi Vundla
 
 * [ ] GET /contacts/{contactId}
 
-### Update Contact
+### Update Contact | Mthokozisi Vundla
 
 * [ ] PUT /contacts/{contactId}
 
-### Delete Contact
+### Delete Contact | Mthokozisi Vundla
 
 * [ ] DELETE /contacts/{contactId}
 ## Validation
