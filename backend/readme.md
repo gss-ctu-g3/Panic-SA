@@ -153,7 +153,7 @@ Base URL: | c.Scholtz
 
 ---
 
-# Phase 6: Alert Service
+# Phase 6: Alert Service 
 
 Base URL:
 
@@ -190,7 +190,7 @@ When panic button is pressed:
 
 ---
 
-# Phase 7: History Service
+# Phase 7: History Service | Dylan Van Der Velde
 
 Base URL:
 
@@ -244,7 +244,7 @@ Base URL:
 
 ---
 
-# Phase 9: Security
+# Phase 9: Security | Dylan Van Der Velde
 
 * [ ] JWT authentication
 * [ ] Role-based access control
