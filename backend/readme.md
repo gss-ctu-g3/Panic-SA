@@ -153,27 +153,27 @@ Base URL: | c.Scholtz
 
 ---
 
-# Phase 6: Alert Service 
+# Phase 6: Alert Service Lesedi.R 
 
 Base URL:
 
 /api/v1/alerts
 
-## Endpoints
+## Endpoints Lesedi Ramolotja
 
-### Trigger Panic Alert
+### Trigger Panic Alert Lesedi Ramolotja
 
 * [ ] POST /alerts/panic
 
-### Get Alert
+### Get Alert Lesedi Ramolotja
 
 * [ ] GET /alerts/{alertId}
 
-### User Alert History
+### User Alert History Lesedi Ramolotja
 
 * [ ] GET /alerts/user/{userId}
 
-## Panic Flow
+## Panic Flow Lesedi Ramolotja
 
 When panic button is pressed:
 
