@@ -70,7 +70,7 @@ POST /api/v1/alerts/panic
 
 ## UI Components
 
-### Panic Button
+### Panic Button| I am doing this part(Michelle Putter)
 
 * [ ] Create large emergency button
 * [ ] Style button for mobile devices
@@ -253,7 +253,7 @@ Display:
 
 ---
 
-# Page 5: Admin Dashboard
+# Page 5: Admin Dashboard| I am doing this part (Michelle Putter)
 
 ## File
 
