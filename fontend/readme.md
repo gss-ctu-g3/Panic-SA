@@ -76,7 +76,7 @@ POST /api/v1/alerts/panic
 * [ ] Style button for mobile devices
 * [ ] Add disabled state during request
 
-### Location Handling
+### Location Handling| I will do this part(Justin vd merwe)
 
 * [ ] Request GPS permissions
 * [ ] Capture latitude
