@@ -16,15 +16,15 @@
 
 ---
 
-# Phase 2: Database Design
+# Phase 2: Database Design | Mthokozisi Vundla
 
-## Users Table
+## Users Table | Mthokozisi Vundla
 
 * [ ] Create users table
 * [ ] Add authentication fields
 * [ ] Add timestamps
 
-## Emergency Contacts Table
+## Emergency Contacts Table | Mthokozisi Vundla
 
 * [ ] Create emergency_contacts table
 * [ ] Link contact to user
@@ -35,14 +35,14 @@
   * [ ] Email
   * [ ] Relationship
 
-## Alerts Table
+## Alerts Table | Mthokozisi Vundla
 
 * [ ] Create alerts table
 * [ ] Store GPS coordinates
 * [ ] Store alert status
 * [ ] Store timestamps
 
-## Notification Logs Table
+## Notification Logs Table | Mthokozisi Vundla
 
 * [ ] Create notification_logs table
 * [ ] Store channel type
@@ -54,7 +54,7 @@
 
 ---
 
-# Phase 3: Contact Management Service
+# Phase 3: Contact Management Service | Mthokozisi Vundla
 
 Base URL:
 
@@ -62,23 +62,23 @@ Base URL:
 
 ## Endpoints
 
-### Create Contact
+### Create Contact | Mthokozisi Vundla
 
 * [ ] POST /contacts
 
-### Get User Contacts
+### Get User Contacts | Mthokozisi Vundla
 
 * [ ] GET /contacts/user/{userId}
 
-### Get Single Contact
+### Get Single Contact | Mthokozisi Vundla
 
 * [ ] GET /contacts/{contactId}
 
-### Update Contact
+### Update Contact | Mthokozisi Vundla
 
 * [ ] PUT /contacts/{contactId}
 
-### Delete Contact
+### Delete Contact | Mthokozisi Vundla
 
 * [ ] DELETE /contacts/{contactId}
 ## Validation
@@ -153,27 +153,27 @@ Base URL: | c.Scholtz
 
 ---
 
-# Phase 6: Alert Service
+# Phase 6: Alert Service Lesedi.R 
 
 Base URL:
 
 /api/v1/alerts
 
-## Endpoints
+## Endpoints Lesedi Ramolotja
 
-### Trigger Panic Alert
+### Trigger Panic Alert Lesedi Ramolotja
 
 * [ ] POST /alerts/panic
 
-### Get Alert
+### Get Alert Lesedi Ramolotja
 
 * [ ] GET /alerts/{alertId}
 
-### User Alert History
+### User Alert History Lesedi Ramolotja
 
 * [ ] GET /alerts/user/{userId}
 
-## Panic Flow
+## Panic Flow Lesedi Ramolotja
 
 When panic button is pressed:
 
@@ -190,7 +190,7 @@ When panic button is pressed:
 
 ---
 
-# Phase 7: History Service
+# Phase 7: History Service | Dylan Van Der Velde
 
 Base URL:
 
@@ -244,7 +244,7 @@ Base URL:
 
 ---
 
-# Phase 9: Security
+# Phase 9: Security | Dylan Van Der Velde
 
 * [ ] JWT authentication
 * [ ] Role-based access control
