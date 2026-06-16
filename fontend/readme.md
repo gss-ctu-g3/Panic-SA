@@ -70,7 +70,7 @@ POST /api/v1/alerts/panic
 
 ## UI Components
 
-### Panic Button
+### Panic Button 
 
 * [ ] Create large emergency button
 * [ ] Style button for mobile devices
