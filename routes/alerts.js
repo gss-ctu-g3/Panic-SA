@@ -17,13 +17,20 @@ router.post('/panic', authenticate, async (req, res) => {
       return res.status(400).json({ success: false, message: 'Latitude and longitude are required' });
     }
 
-    const alert = await Alert.create({
-      userId,
-      latitude,
-      longitude,
-      status: 'active'
-    });
+  const lat = parseFloat(latitude);
+const lng = parseFloat(longitude);
 
+if (isNaN(lat) || isNaN(lng)) {
+  return res.status(400).json({ success: false, message: 'Latitude and longitude must be valid numbers' });
+}
+
+if (lat < -90 || lat > 90) {
+  return res.status(400).json({ success: false, message: 'Latitude must be between -90 and 90' });
+}
+
+if (lng < -180 || lng > 180) {
+  return res.status(400).json({ success: false, message: 'Longitude must be between -180 and 180' });
+    }
     console.log('Created alert:', alert._id);
 
     const contacts = await EmergencyContact.find({ userId });

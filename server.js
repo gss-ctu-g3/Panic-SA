@@ -4,6 +4,7 @@ const http = require('http');
 const { Server } = require('socket.io');
 const mongoose = require('mongoose');
 require('dotenv').config();
+const jwt = require("jsonwebtoken");
 
 const alertRoutes = require('./routes/alerts');
 
