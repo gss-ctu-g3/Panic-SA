@@ -1,0 +1,57 @@
+// services/notifications.js
+const twilio = require('twilio');
+const nodemailer = require('nodemailer');
+
+// Twilio setup
+const client = twilio(
+  process.env.TWILIO_ACCOUNT_SID,
+  process.env.TWILIO_AUTH_TOKEN
+);
+
+// Function to send SMS
+async function sendSMS(to, message) {
+  try {
+    const sms = await client.messages.create({
+      body: message,
+      from: process.env.TWILIO_PHONE_NUMBER,
+      to: to
+    });
+
+    console.log('SMS sent successfully:', sms.sid);
+    return { success: true, sid: sms.sid };
+  } catch (error) {
+    console.log('Error sending SMS:', error.message);
+    return { success: false, error: error.message };
+  }
+}
+
+// Email setup
+const transporter = nodemailer.createTransport({
+  host: process.env.EMAIL_HOST,
+  port: Number(process.env.EMAIL_PORT),
+  secure: false, // use true if port is 465
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  }
+});
+
+// Function to send email
+async function sendEmail(to, subject, html) {
+  try {
+    const info = await transporter.sendMail({
+      from: process.env.EMAIL_FROM,
+      to: to,
+      subject: subject,
+      html: html
+    });
+
+    console.log('Email sent successfully:', info.messageId);
+    return { success: true, messageId: info.messageId };
+  } catch (error) {
+    console.log('Error sending email:', error.message);
+    return { success: false, error: error.message };
+  }
+}
+
+module.exports = { sendSMS, sendEmail };
