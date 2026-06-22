@@ -1,0 +1,9 @@
+links:
+
+http://127.0.0.1:8000/api/v1/history/alerts
+
+http://127.0.0.1:8000/api/v1/history/notifications
+
+http://127.0.0.1:8000/
+
+http://127.0.0.1:8000/api/v1/history/alerts?user_id=Test001&status=ACTIVE
