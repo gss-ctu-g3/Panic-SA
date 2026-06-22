@@ -112,7 +112,7 @@ Allow users to manage emergency contacts.
 
 ## API Integration
 
-### Get Contacts
+### Get Contacts| i will do this part Andipha Vundisa
 
 ```http
 GET /api/v1/contacts/user/{userId}
