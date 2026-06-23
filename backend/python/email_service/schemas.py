@@ -14,6 +14,13 @@ class EmailConsent(BaseModel):
     user_full_name: str
     revoke_consent_url: str
 
+class EmailAlert(BaseModel):
+    send_to: list[str]
+    user_full_name: str
+    location_link: str
+    revoke_consent_url: str
+
+
 
 class UserData(BaseModel):
     username: str
