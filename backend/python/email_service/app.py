@@ -45,7 +45,7 @@ except:
 @app.post("/email/consent")
 def email_consent(email_json: EmailConsent):
 
-    if (TEMPLATE_CONSENT == None) or (TEMPLATE_ALERT == None):
+    if (TEMPLATE_CONSENT is None) or (TEMPLATE_ALERT is None):
         return {
             "status" : "Failed",
             "message" : "Error loading templates failing for safety."
@@ -109,7 +109,7 @@ def email_consent(email_json: EmailConsent):
 @app.post("/email/alert")
 def email_alert(email_json: EmailAlert):
 
-    if (TEMPLATE_CONSENT == None) or (TEMPLATE_ALERT == None):
+    if (TEMPLATE_CONSENT is None) or (TEMPLATE_ALERT is None):
         return {
             "status" : "Failed",
             "message" : "Error loading templates failing for safety."
