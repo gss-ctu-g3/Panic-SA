@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <link rel="stylesheet" href="css/admin.css"/>   
+ <!--To add a title-->
+ <title>Admin</title>
+ <script>
+    window.addEventListener("load",function() {
+        setTimeout(showPage,1500);
+    });
+    function showPage() {
+        document.getElementById("loader").style.display="none";
+        document.getElementById("Active-Alerts").style.display="block";
+    }
+ </script>
+</head>
+    
+<!--Navigation-->
+  <header>
+    <div class="header-inner">
+    <div class="logo-name">Panic-SA</div>
+        <nav aria-label="Primary">  
+            <ul>
+            <li><a href="index.html">Panic Page</a></li>
+            <li><a href="contacts.html">Emergency Contacts</a></li>
+            <li><a href="history.html">Alert History</a></li>
+            <li><a href="notifications.html">Notification History</a></li>
+            <li><a href="admin.html">Admin Dashboard</a></li>
+            </ul>
+        </nav>
+    </div>
+  </header>
+  
+  <br>
+  <br>
+   <!--Contacts Table-->
+  <div class="Active-Alerts">
+  <table>
+    <tr>
+        <th>Alert ID</th>
+        <th>User ID</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Status</th>
+        <th>TimeStamp</th>
+    </tr>
+    <tr>
+        <td>D250613</td>
+        <td>user_123</td>
+        <td>-28.13456</td>
+        <td>30.34578</td>
+        <td>Active</td>
+        <td>12:00  2026-06-20</td>
+    </tr>
+  </table>
+</div>
+
+<br>
+<!--Total alerts card-->
+<section class="total-statistics">
+    <div class="total-card">
+        <h3>Total Alerts:</h3>
+       <p class="total-alerts">320</p>
+    </div>
+    
+<!--Today's alerts card-->
+    <div class="today-card">
+        <h3>Today's Alerts:</h3>
+    <p class="today-alerts">120</p>
+    </div>
+
+<!--Active alerts card-->
+    <div class="active-card">
+        <h3>Active Alerts:</h3>
+    <p class="active-alerts">120</p>
+    </div>
+</section>
+
+<style>
+    
+</style>
+ 
+
+<!--Loader-->
+<div class="loader"></div>
+
+<!--footer-->
+<footer class="bottom-footer">
+    <ul>
+        <li>Panic-SA@2026 Copyright Reserved</li>
+    </ul>
+</footer>
+    </body>
+</html>

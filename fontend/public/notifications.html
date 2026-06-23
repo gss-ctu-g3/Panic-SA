@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <link rel="stylesheet" href="css/contacts.css"/>   
+ <!--To add a title-->
+ <title>Admin</title>
+ <script>
+       //Add and Edit button
+ </script>
+</head>
+ 
+<body>
+<!--Navigation-->
+  <header>
+    <div class="header-inner">
+    <span>Panic-SA</span>
+        <nav aria-label="Primary">  
+            <ul>
+            <li><a href="index.html">Panic Page</a></li>
+            <li><a href="contacts.html">Emergency Contacts</a></li>
+            <li><a href="history.html">Alert History</a></li>
+            <li><a href="notifications.html">Notification History</a></li>
+            <li><a href="admin.html">Admin Dashboard</a></li>
+            </ul>
+        </nav>
+    </div>
+  </header>
+
+  <br>
+  <br>
+
+<!--Status Badges-->
+  <div id="badge-container">
+    <span id="badge" class="status-badge status-success"></span>
+  </div>
+
+
+  <!--Contacts Table-->
+  <div class="Notifications-table">
+  <table>
+    <tr>
+        <th>Channel</th>
+        <th>Recipient</th>
+        <th>Status</th>
+        <th>Date Sent</th>
+    </tr>
+    <tr>
+        <td>Emergency</td>
+        <td>Pikkie</td>
+        <td>
+        <div class="controls">
+    <button onclick="updateStatus('success')">Set Success</button>
+    <button onclick="updateStatus('warning')">Set warning</button>
+    <button onclick="updateStatus('danger')">Set Danger</button>
+        </td>
+        <td>2025-11-22</td>
+    </tr>
+  </table>
+</div>
+</div>
+  <!--Loader-->
+<div class="loader"></div>
+
+<!--footer-->
+<footer class="bottom-footer">
+    <ul>
+        <li>Panic-SA@2024 Copyright Reserved</li>
+    </ul>
+</footer>
+    </body>
+</html>
