@@ -1,6 +1,8 @@
+/*Makes transition between pages smoother*/
 @view-transition {
     navigation: auto;
 }
+
 
 @media (max-width: 768px) {
     .container {
@@ -16,7 +18,7 @@ html,body {
     height: 100vh;
 }
 
-/* Header & Navigation */
+/* Header & Navigation*/
     header {
       position: sticky;
       top: 0;
