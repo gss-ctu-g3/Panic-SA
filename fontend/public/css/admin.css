@@ -27,7 +27,7 @@ html,body {
       border-bottom: 2px solid #ffffff;
     }
 
-    .logo-name {
+   .logo-name {
       font-weight: bold;
       font-size: 20px;
       color: #000000;
@@ -113,77 +113,110 @@ html,body {
    /*Total Alerts card*/
 .total-statistics {
     display: flex;
-    justify-content: center;
-    margin: 30px;
+    justify-content: space-around;
+    align-items: stretch;
+    text-align: center;
+    gap: 20px;
+    margin: 20px;
     margin-top: 140px;
     padding: 30px;
     background-color: #ffffff;
     border-radius: 5px;
-    width: 120px;
+    width: 150px;
     height: 100px;
 }
 
-.total-card {
+.stat-card {
     padding: 15px 25px;
     border-radius: 8px;
     text-align: center;
     width: 150px;
 }
 
-.total-card h3 {
+.stat-card h3 {
     font-size: 16px;
     margin-bottom: 10px;
     color: #000000;
 }
 
-.total-card p {
+.stat-card p {
   font-size: 24px;
   margin-bottom: 10px;
   font-weight: bold;
   color: #cb4044;
 }
 
- /*Today's alerts styling*/
-.today-card {
-  padding: 15px 25px;
+  /*Today's Alerts card*/
+.today-statistics {
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+    align-items: stretch;
+    text-align: center;
+    margin: 500px;
+    margin-top: -170px;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    width: 150px;
+    height: 100px;
+}
+
+.stat-card {
+    padding: 15px 25px;
     border-radius: 8px;
     text-align: center;
     width: 150px;
 }
-.today-card h3 {
-  font-size: 16px;
+
+.stat-card h3 {
+    font-size: 16px;
     margin-bottom: 10px;
     color: #000000;
 }
 
-.today-card p {
-  font-size: 24px;
-  margin-bottom: 10px;
-  font-weight: bold;
-  color: #cb4044;
+  /*Active Alerts card*/
+.active-statistics {
+display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    text-align: center;
+    gap: 20px;
+    margin: 1000px;
+    margin-top: -660px;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    width: 150px;
+    height: 100px;
 }
 
-
-/*Active alerts table styling*/
-.active-card {
-  padding: 15px 25px;
+.stat-card {
+    padding: 15px 25px;
     border-radius: 8px;
     text-align: center;
     width: 150px;
 }
-.active-card h3 {
-  font-size: 16px;
+
+.stat-card h3 {
+    font-size: 16px;
     margin-bottom: 10px;
     color: #000000;
 }
 
-.active-card p {
+.stat-card p {
   font-size: 24px;
   margin-bottom: 10px;
   font-weight: bold;
   color: #cb4044;
 }
 
+.stat-card p {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #cb4044;
+}
 
 table {
     width: 80%;

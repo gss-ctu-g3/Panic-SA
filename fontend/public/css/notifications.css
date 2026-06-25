@@ -78,8 +78,8 @@ html,body {
       background: #000000;
     }
 
-    /*Contacts table styling*/
-.Contacts-table {
+    /*Notifications table styling*/
+.Notifications-table {
     display: flex;
     justify-content: center;
     margin-top: 20px;
@@ -96,7 +96,7 @@ table {
 th{
     padding: 10px;
     border: none;
-    background-color: #000000;
+    background-color: #424f57;
     color: #ffffff;
 }
 
@@ -107,50 +107,12 @@ td {
     color: #ffffff;
 }
 
-/*Add contact*/
-.add-button {
-    display: block;
-    margin: 20px auto;
-    padding:8px 10px;
-    background-color: #40cbc7;
-    color: #ffffff;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    cursor: pointer;
-}
-/*Edit contact*/
-.edit-button {
-    background-color: #013453;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
+    td:hover {
+      background-color: #042520;
+      cursor: pointer;
 }
 
-.Delete-button {
-    background-color: #df5257;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-.add-button:hover {
-  opacity: 0.8;
-}
-
-.edit-button:hover {
-    opacity: 0.8;
-}
-
-.delete-button:hover {
-    opacity: 0.8;
-}
-
-    /* Footer*/
+    /*Footer*/
     .bottom-footer {
       position: fixed;
       background-color:#cb4044;
@@ -198,10 +160,3 @@ td {
   0% {transform: rotate(0deg);}
   100% {transform: rotate(360deg);}
 }
-
- .hidden {
-    display: none;
- }
- .submit {
-    display: none;
- }
