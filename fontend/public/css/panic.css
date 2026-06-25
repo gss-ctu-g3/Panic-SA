@@ -7,6 +7,7 @@ html,body {
     margin: 0px;
     padding: 0px;
     height: 100%;
+    width: 100%;
 }
 
 /*Panic button*/
@@ -25,95 +26,9 @@ html,body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40vh;
+    height: 80vh;
     padding-top: 20px;
 }
-
-
-/*Contacts container*/
-.contacts-container {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    height: 300px;
-    width:300px;
-}
-
-/*Contact button*/
-.contacts-button {
-    position: absolute;
-     bottom: 59px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #ffffff;
-    color: #cb4044;
-    border: 4px solid ;
-    border-radius: 50%;
-    padding: 20px 40px;
-    font-size: 20px;
-    border-radius: 50px;
-    cursor: pointer;
-}
-
-/* Header & Navigation */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(8px);
-      background-color:#cb4044;
-      border-bottom: 2px solid #ffffff
-    }
-
-    .header-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 5px;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-    }
-
-    nav li {
-      display: inline-block;
-      font-weight: bold;
-    }
-
-    nav a {
-      padding: 8px 12px;
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-      transition: 200ms ease;
-    }
-
-    nav a:hover {
-      color: white;
-      border-color: transparent;
-      background-color: #000000;
-    }
-
-    .nav-cta {
-      border-color: #ffffff;
-      background-color: transparent;
-    }
-
-    .nav-cta:hover {
-      background: #000000;
-    }
 
     /* Footer*/
 .bottom-footer {
@@ -121,7 +36,7 @@ html,body {
   background-color:#cb4044;
   color: #ffffff;
   text-align: center;
-  padding: 20px;
+  padding: 5px;
   margin-top: 40px;
   border-top: 2px solid #ffffff;
   font-size: 0.9rem;
@@ -130,14 +45,17 @@ html,body {
   width: 100%;
 }
 
-.bottom-footer p {
-  margin: 8px;
-}
-
 .bottom-footer a {
-  color: #ffffff;
-  text-decoration: underline;
-  margin: 8px;
+  display: inline-block;
+  padding: 10px 20px;
+  border: 5px solid #ffffff;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: #000000;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .bottom-footer ul {
