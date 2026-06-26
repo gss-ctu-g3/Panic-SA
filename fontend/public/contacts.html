@@ -5,31 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
  <link rel="stylesheet" href="css/contacts.css"/>   
  <!--To add a title-->
- <title>Admin</title>
- <script>
-       //Add and Edit button
- </script>
+ <title>Admin</title>  
 </head>
- 
 <body>
-<!--Navigation-->
-  <header>
-    <div class="header-inner">
-    <div class="logo-name">Panic-SA</div>
-        <nav aria-label="Primary">  
-            <ul>
-            <li><a href="index.html">Panic Page</a></li>
-            <li><a href="contacts.html">Emergency Contacts</a></li>
-            <li><a href="history.html">Alert History</a></li>
-            <li><a href="notifications.html">Notification History</a></li>
-            <li><a href="admin.html">Admin Dashboard</a></li>
-            </ul>
-        </nav>
-    </div>
-  </header>
 
-  <br>
-  <br>
+<br>
+<br>
+  
 <button class="add-button">Add Contact</button>
   <!--Contacts Table-->
   <div class="Contacts-table">
@@ -54,13 +36,42 @@
   </table>
 </div>
 
+<body>
+  <div class="contact-form"
+<form id="add-contact">
+  <label for="name">Name:</label>
+    <input type="hidden" id="name" placeholder="Name">
+  <label for="phone-number">Phone Number:</label>
+    <input type="hidden" id="phonenumber" placeholder="Phone Number">
+  <label for="email">Email:</label>
+    <input type="hidden" id="email" placeholder="panic-sa@gmail.com">
+  <label for="relationship">Relationship:</label>
+    <input type="hidden" placeholder="Relationship">
+</form>
+
   <!--Loader-->
 <div class="loader"></div>
 
 <!--footer-->
 <footer class="bottom-footer">
     <ul>
-        <li>Panic-SA@2026 Copyright Reserved</li>
+  <div class="navigation">
+    <a href="index.html" class="link">
+      <span>Panic</span>
+    </a>
+    <a href="contacts.html" class="link">
+      <span>Emergency</span>
+    </a>
+    <a href="history.html" class="link">
+      <span>Alert</span>
+    </a>
+    <a href="notifications.html" class="link">
+      <span>Notifications</span>
+    </a>
+    <a href="admin.html" class="link">
+      <span>Admin</span>
+    </a>
+  </div>
     </ul>
 </footer>
     </body>
