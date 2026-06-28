@@ -9,24 +9,20 @@
 </head>
     
 <!--Navigation-->
-  <header>
-    <div class="header-inner">
-    <div class="logo-name">Panic-SA</div>
-        <nav aria-label="Primary">  
-            <ul>
+    <nav class="nav-container">
+        <button id="menu" class="menu">Menu</button>
+            <ul id="nav-links" class="nav-hidden">
             <li><a href="index.html">Panic Page</a></li>
             <li><a href="contacts.html">Emergency Contacts</a></li>
             <li><a href="history.html">Alert History</a></li>
             <li><a href="notifications.html">Notification History</a></li>
             <li><a href="admin.html">Admin Dashboard</a></li>
             </ul>
-        </nav>
-    </div>
-  </header>
-  
+    </nav>   
+   
   <br>
   <br>
-   <!--Contacts Table-->
+   <!--Active Alerts Table-->
   <div class="Active-Alerts">
   <table>
     <tr>
@@ -50,31 +46,39 @@
 
 <br>
 <!--Total alerts card-->
-<section class="total-statistics">
+ <div class="statistic-container">
     <div class="stat-card">
         <h3>Total Alerts:</h3>
        <p class="total-alerts">320</p>
     </div>
-</section>
 
 <!--Today's alerts card-->
-<section class="today-statistics">
     <div class="stat-card">
         <h3>Todays Alerts:</h3>
     <p class="today-alerts">120</p>
     </div>
-</section>
 
 <!--Active alerts card-->
-<section class="active-statistics">
     <div class="stat-card">
         <h3>Active Alerts:</h3>
     <p class="active-alerts">2500</p>
     </div>
-</section>
+</div>
 
 <!--Loader-->
 <div class="loader"></div>
 
+<!--footer-->
+<footer class="bottom-footer">
+      Panic-sa@2026 Copyright reserved
+  </footer>
+ 
+<script>
+    const menu = document.getElementById('menu');
+    const nav_links = document.getElementById('nav-links');  
+    menu.addEventListener('click', function() {
+    nav_links.classList.toggle('nav-hidden')
+    });
+ </script>
     </body>
 </html>
