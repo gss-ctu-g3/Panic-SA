@@ -10,20 +10,16 @@
  
 <body>
 <!--Navigation-->
-  <header>
-    <div class="header-inner">
-    <div class="logo-name">Panic-SA</div>
-        <nav aria-label="Primary">  
-            <ul>
+    <nav class="nav-container">
+        <button id="menu" class="menu">Menu</button>
+            <ul id="nav-links" class="nav-hidden">
             <li><a href="index.html">Panic Page</a></li>
             <li><a href="contacts.html">Emergency Contacts</a></li>
             <li><a href="history.html">Alert History</a></li>
             <li><a href="notifications.html">Notification History</a></li>
             <li><a href="admin.html">Admin Dashboard</a></li>
             </ul>
-        </nav>
-    </div>
-  </header>
+    </nav>   
 
   <br>
   <br>
@@ -55,5 +51,13 @@
         <li>Panic-SA@2026 Copyright Reserved</li>
     </ul>
 </footer>
+
+<script>
+    const menu = document.getElementById('menu');
+    const  nav_links = document.getElementById('nav-links');
+    menu.addEventListener('click', function() {
+    nav_links.classList.toggle('nav-hidden')
+    });
+ </script>
     </body>
 </html>

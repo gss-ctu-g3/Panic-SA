@@ -10,6 +10,52 @@ html,body {
     width: 100%;
 }
 
+/*menu styling*/
+#nav-container {
+  position: relative;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.menu {
+  background-color: #cb4044;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+menu:hover {
+  background-color: ffffff;
+}
+
+#nav-links {
+  list-style: none;
+  padding: 10px 0px;
+  margin: 5px 0px 0px 0px;
+  background-color: #cb4044;
+  position: absolute;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  width: 150px;
+}
+
+#nav-links li a {
+  display: block;
+  padding: 10px 15px;
+  color: #000000;
+  text-decoration: none;
+}
+
+#nav-links li:hover {
+  background-color: #40cbc7;
+}
+
+.nav-hidden {
+  display: none;
+}
+
 /*Panic button*/
 .panic-button {
     background-color: #cb4044;

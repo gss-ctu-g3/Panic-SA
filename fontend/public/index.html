@@ -9,7 +9,18 @@
 </head>
     
 <body>
-    
+   <!--Navigation-->
+    <nav class="nav-container">
+        <button id="menu" class="menu">Menu</button>
+            <ul id="nav-links" class="nav-hidden">
+            <li><a href="index.html">Panic Page</a></li>
+            <li><a href="contacts.html">Emergency Contacts</a></li>
+            <li><a href="history.html">Alert History</a></li>
+            <li><a href="notifications.html">Notification History</a></li>
+            <li><a href="admin.html">Admin Dashboard</a></li>
+            </ul>
+    </nav>   
+
 <!--To make a container for the panic button-->
         <div class="panic-container">
             <button class="panic-button">SOS</button>
@@ -25,4 +36,12 @@
         </ul>
 </footer>
     </body>
+
+<script>
+    const menu = document.getElementById('menu');
+    const  nav_links = document.getElementById('nav-links');
+    menu.addEventListener('click', function() {
+    nav_links.classList.toggle('nav-hidden')
+    });
+ </script>
 </html>
