@@ -46,28 +46,24 @@
 
 <br>
 <!--Total alerts card-->
-<section class="total-statistics">
+ <div class="statistic-container">
     <div class="stat-card">
         <h3>Total Alerts:</h3>
        <p class="total-alerts">320</p>
     </div>
-</section>
 
 <!--Today's alerts card-->
-<section class="today-statistics">
     <div class="stat-card">
         <h3>Todays Alerts:</h3>
     <p class="today-alerts">120</p>
     </div>
-</section>
 
 <!--Active alerts card-->
-<section class="active-statistics">
     <div class="stat-card">
         <h3>Active Alerts:</h3>
     <p class="active-alerts">2500</p>
     </div>
-</section>
+</div>
 
 <!--Loader-->
 <div class="loader"></div>
@@ -79,7 +75,7 @@
  
 <script>
     const menu = document.getElementById('menu');
-    const  nav_links = document.getElementById('nav-links');
+    const nav_links = document.getElementById('nav-links');  
     menu.addEventListener('click', function() {
     nav_links.classList.toggle('nav-hidden')
     });

@@ -9,6 +9,12 @@
       }
     }
 
+  @media (max-width: 768px) {
+    .statistic-container {
+      flex-direction: column;
+    }
+  }
+
 html,body {
     background-color: #000000;
     margin: 0px;
@@ -95,111 +101,43 @@ menu:hover {
     }
 
    /*Total Alerts card*/
-.total-statistics {
-    display: flex;
-    justify-content: space-around;
-    align-items: stretch;
-    text-align: center;
-    gap: 800px;
-    margin: 130px;
-    margin-top: 140px;
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 5px;
-    width: 150px;
-    height: 100px;
+.statistic-container {
+  display: flex;                 
+  justify-content: center;  
+  align-items: flex-start;
+  gap: 40px;                      
+  padding: 30px;
+  margin: 40px auto;
+  border-radius: 8px;
+  text-align: center;
+  width: fit-content;
+  background-color: #cb4044;
 }
 
 .stat-card {
-    padding: 15px 25px;
-    border-radius: 8px;
-    text-align: center;
-    width: 150px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 6px;
+  text-align: center;
+  width: 150px;
+  height: 100px;
 }
 
 .stat-card h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-    color: #000000;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #000000;
 }
 
 .stat-card p {
   font-size: 24px;
-  margin-bottom: 10px;
   font-weight: bold;
   color: #cb4044;
 }
 
-  /*Today's Alerts card*/
-.today-statistics {
-    display: flex;
-    gap: 20px;
-    justify-content: space-around;
-    align-items: stretch;
-    text-align: center;
-    margin: 530px;
-    margin-top: -290px;
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 5px;
-    width: 150px;
-    height: 100px;
-}
-
-.stat-card {
-    padding: 15px 25px;
-    border-radius: 8px;
-    text-align: center;
-    width: 150px;
-}
-
-.stat-card h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-    color: #000000;
-}
-
-  /*Active Alerts card*/
-.active-statistics {
-display: flex;
-    justify-content: space-around;
-    align-items: stretch;
-    text-align: center;
-    gap: 20px;
-    margin: 950px;
-    margin-top: -690px;
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 5px;
-    width: 150px;
-    height: 100px;
-}
-
-.stat-card {
-    padding: 15px 25px;
-    border-radius: 8px;
-    text-align: center;
-    width: 150px;
-}
-
-.stat-card h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-    color: #000000;
-}
-
-.stat-card p {
-  font-size: 24px;
-  margin-bottom: 10px;
-  font-weight: bold;
-  color: #cb4044;
-}
-
-.stat-card p {
-  font-size: 24px;
-  margin-bottom: 10px;
-  font-weight: bold;
-  color: #cb4044;
+.stat-card:hover {
+  background-color: #40cbc7;
+  cursor: pointer;
 }
 
 table {
