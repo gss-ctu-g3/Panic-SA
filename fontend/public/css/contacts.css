@@ -65,34 +65,36 @@ menu:hover {
 
     /*Contacts table styling*/
 .Contacts-table {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+  overflow-x: auto;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+  justify-content: center;
+  display: flex;
 }
 
 table {
-    width: 80%;
-    text-align: center;
-    margin: 0 auto;
-    background-color: #01070a;
+    width: max-content;
+    background-color: #f5f5f5;
+    color: #222;
     border-collapse: collapse;
+    margin: 0 auto;
 }
 
-th{
-    padding: 10px;
-    border: none;
-    background-color: #000000;
-    color: #ffffff;
-}
 
 td {
-    padding: 10px;  
+    padding: 8px 12px;  
+    background-color: #2a2a2a;
     border: none;
-    background-color: #000000;
-    color: #ffffff;
+    color: #40cbc7;
 }
 
      
+th {
+  padding: 8px 12px;
+  background-color: #f5f5f5;
+  color: #000000;
+  border: none;
+}
 
 /*Add contact*/
 .add-button {
@@ -193,9 +195,54 @@ td {
   100% {transform: rotate(360deg);}
 }
 
- .hidden {
+ #add-contact {
     display: none;
  }
+
+ #add-contact.show-form {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ffffff;
+    border-radius: 6px;
+    background-color: #222;
+ }
+
+.contact-form {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  color: #f0f0f0; 
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #f0f0f0;
+}
+
+.contact-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #40cbc7;
+  color: #fff;
+}
+
+.contact-form input::placeholder {
+  color: #222;
+}
+
+.add-button:hover {
+  background-color: #cb4044; 
+}
+
  .submit {
     display: none;
  }
