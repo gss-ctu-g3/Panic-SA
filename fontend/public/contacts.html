@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
- <link rel="stylesheet" href="css/contacts.css"/>   
+ <link rel="stylesheet" href="css/contacts.css"/>  
  <!--To add a title-->
  <title>Admin</title>  
 </head>
@@ -24,7 +24,7 @@
 <br>
 <br>
   
-<button class="add-button">Add Contact</button>
+<button id="add-button" class="add-button">Add Contact</button>
   <!--Contacts Table-->
   <div class="Contacts-table">
   <table>
@@ -35,10 +35,11 @@
         <th>Relationship</th>
         <th>Edit and delete</th>
     </tr>
+    
     <tr>
-        <td>Etienne Putter</td>
+        <td>Piet Pompies</td>
         <td>0836947931</td>
-        <td>Ettiene49buggy@gmail.com</td>
+        <td>Pietpompies49@gmail.com</td>
         <td>Uncle</td>
         <td>
         <button class="edit-button">Edit Contact</button>
@@ -48,18 +49,19 @@
   </table>
 </div>
 
-<body>
-  <div class="contact-form"
+  <div class="contact-form">
 <form id="add-contact">
   <label for="name">Name:</label>
-    <input type="hidden" id="name" placeholder="Name">
+    <input type="text" id="name" placeholder="Name">
   <label for="phone-number">Phone Number:</label>
-    <input type="hidden" id="phonenumber" placeholder="Phone Number">
+    <input type="text" id="phonenumber" placeholder="Phone Number">
   <label for="email">Email:</label>
-    <input type="hidden" id="email" placeholder="panic-sa@gmail.com">
+    <input type="email" id="email" placeholder="panic-sa@gmail.com">
   <label for="relationship">Relationship:</label>
-    <input type="hidden" placeholder="Relationship">
+    <input type="text" placeholder="Relationship">
+    
 </form>
+  </div>
 
   <!--Loader-->
 <div class="loader"></div>
@@ -70,11 +72,18 @@
   </footer>
 
   <script>
-    const menu = document.getElementById('menu');
+  const menu = document.getElementById('menu');
     const  nav_links = document.getElementById('nav-links');
     menu.addEventListener('click', function() {
     nav_links.classList.toggle('nav-hidden')
     });
- </script>
-    </body>
+
+//add contact button
+    const add_button =document.getElementById('add-button');
+    const add_contact = document.getElementById('add-contact');
+    add_button.addEventListener('click', function() {
+    add_contact.classList.toggle('show-form')
+    });
+    </script>
+</body>
 </html>
