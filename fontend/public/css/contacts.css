@@ -22,6 +22,12 @@ html,body {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+/*menu styling*/
+#nav-container {
+  position: relative;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 .menu {
   background-color: #cb4044;
   color: #ffffff;
@@ -140,7 +146,7 @@ th {
 }
 
     /* Footer*/
-    .bottom-footer {
+      .bottom-footer {
       position: fixed;
       background-color:#cb4044;
       color: #ffffff;
@@ -201,6 +207,7 @@ th {
 
  #add-contact.show-form {
     display: block;
+    margin-bottom: 80px;
     margin-top: 20px;
     padding: 15px;
     border: 1px solid #ffffff;
@@ -208,13 +215,26 @@ th {
     background-color: #222;
  }
 
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  max-width: 400px;
+}
+
 .contact-form {
-  max-width: 500px;
+  overflow: hidden;
+  max-width: 480px;
   margin: 20px auto;
-  padding: 20px;
-  
+  padding: 15px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  box-sizing: border-box;
   color: #f0f0f0; 
 }
 
@@ -243,6 +263,7 @@ th {
   background-color: #cb4044; 
 }
 
- .submit {
-    display: none;
+ .submit-button {
+    background-color: #cb4044;
+    color: #000000;  
  }

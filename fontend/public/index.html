@@ -23,7 +23,7 @@
 
 <!--To make a container for the panic button-->
         <div class="panic-container">
-            <button class="panic-button">SOS</button>
+            <button id="panic-button" class="panic-button">SOS</button>
         </div>
 
        <!--Loader-->
@@ -37,11 +37,6 @@
   </footer>
     </body>
 
-<script>
-    const menu = document.getElementById('menu');
-    const  nav_links = document.getElementById('nav-links');
-    menu.addEventListener('click', function() {
-    nav_links.classList.toggle('nav-hidden')
-    });
- </script>
+<script src="js/panic.js"></script>
+
 </html>
