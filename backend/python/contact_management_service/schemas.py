@@ -19,3 +19,18 @@ class EmailAlert(BaseModel):
     user_full_name: str
     location_link: str
     revoke_consent_url: str
+
+
+
+class UserData(BaseModel):
+    username: str
+    email: str
+    age: int | None = None  # Optional field
+
+
+class EmergencyContact(BaseModel):
+    linked_user_id: str
+    name: str
+    surname: str
+    email_address: str
+    phone: str
