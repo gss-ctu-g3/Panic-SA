@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <link rel="stylesheet" href="css/contacts.css"/>  
+ <!--To add a title-->
+ <title>Admin</title>  
+</head>
+<body>
+<!--Navigation-->
+
+    <nav class="nav-container">
+        <button id="menu" class="menu">Menu</button>
+            <ul id="nav-links" class="nav-hidden">
+            <li><a href="index.html">Panic Page</a></li>
+            <li><a href="contacts.html">Emergency Contacts</a></li>
+            <li><a href="history.html">Alert History</a></li>
+            <li><a href="notifications.html">Notification History</a></li>
+            <li><a href="admin.html">Admin Dashboard</a></li>
+            </ul>
+    </nav>   
+
+<br>
+<br>
+  
+<button id="add-button" class="add-button">Add Contact</button>
+  <!--Contacts Table-->
+  <div class="Contacts-table">
+  <table>
+    <tr>
+        <th>Name</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+        <th>Relationship</th>
+        <th>Edit and delete</th>
+    </tr>
+    
+    <tr>
+        <td>Piet Pompies</td>
+        <td>0836947931</td>
+        <td>Pietpompies49@gmail.com</td>
+        <td>Uncle</td>
+        <td>
+        <button class="edit-button">Edit Contact</button>
+        <button class="Delete-button">Delete Contact</button>
+        </td>
+    </tr>
+  </table>
+</div>
+
+  <div class="contact-form">
+<form id="add-contact">
+  <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Name">
+  <label for="phone-number">Phone Number:</label>
+    <input type="text" id="phonenumber" placeholder="Phone Number">
+  <label for="email">Email:</label>
+    <input type="email" id="email" placeholder="panic-sa@gmail.com">
+  <label for="relationship">Relationship:</label>
+    <input type="text" placeholder="Relationship">
+  <button type="submit-button" class="submit-button">submit</button>  
+</form>
+  </div>
+
+  <!--Loader-->
+<div class="loader"></div>
+
+<!--footer-->
+  <footer class="bottom-footer">
+      Panic-sa@2026 Copyright reserved
+  </footer>
+
+ <script src="js/contacts.js"></script>
+</body>
+</html>
