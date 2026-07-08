@@ -300,7 +300,8 @@ def send_sms_notifications(
                 if data.get("status") != "success":
                     sms_status = "failed"
             except Exception:
-                pass
+                # If the SMS service returns a non-JSON or malformed body, we cannot confirm success.
+                sms_status = "failed"
 
         for phone in phones:
             log_notification(
