@@ -1,39 +1,63 @@
 # Frontend
 
+Static HTML/CSS/JS frontend served by nginx from `fontend/public/`.
+
 ---
 
 # Project Structure
 
 ```text
-/public
+fontend/public/
 │
 ├── index.html
+├── login.html
+├── register.html
 ├── contacts.html
 ├── history.html
-├── notifications.html
 ├── admin.html
+├── alert/
+│   └── live.html
 │
 ├── css/
 │   ├── global.css
+│   ├── nav-menu.css
 │   ├── panic.css
+│   ├── login.css
+│   ├── register.css
 │   ├── contacts.css
 │   ├── history.css
-│   └── admin.css
+│   ├── admin.css
+│   └── live-alert.css
 │
 ├── js/
 │   ├── api.js
 │   ├── auth.js
+│   ├── auth-guard.js
+│   ├── login.js
+│   ├── register.js
 │   ├── panic.js
 │   ├── contacts.js
 │   ├── history.js
-│   ├── notifications.js
-│   └── admin.js
+│   ├── admin.js
+│   ├── live-alert.js
+│   └── tailwind-config.js
 │
 └── components/
-    ├── loader.js
-    ├── modal.js
-    ├── alerts.js
-    └── badges.js
+    └── nav-menu.js
+```
+
+---
+
+# API Base URL
+
+The frontend uses relative paths proxied by nginx (see `fontend/public/js/api.js`).
+
+```text
+/auth/
+/contacts/
+/alerts/
+/history/
+/admin/
 ```
 
 ---
@@ -48,57 +72,53 @@ index.html
 
 ## Goal
 
-Provide a one-tap emergency panic button that immediately sends an emergency alert with the user's GPS coordinates.
+Provide a one-tap emergency panic button that sends an alert with the user's GPS coordinates.
 
 ## API Integration
 
-### Trigger Panic Alert
-
 ```http
-POST /api/v1/alerts/panic
+POST /alerts/panic
+GET  /alerts/active/me
+PATCH /alerts/{alertId}/location
+POST /alerts/{alertId}/cancel
 ```
 
-### Request Body
+## Status
 
-```json
-{
-  "userId": "user_123",
-  "latitude": -26.12345,
-  "longitude": 28.12345
-}
-```
-
-## UI Components
-
-### Panic Button| I am doing this part(Michelle Putter)
-
-
-* [ ] Create large emergency button
-* [ ] Style button for mobile devices
-* [ ] Add disabled state during request
-
-### Location Handling| I will do this part(Justin vd merwe)
-
-* [ ] Request GPS permissions
-* [ ] Capture latitude
-* [ ] Capture longitude
-* [ ] Handle permission denied errors
-
-### Alert Submission
-
-* [ ] Send request using Fetch API
-* [ ] Show loading spinner
-* [ ] Show success message
-* [ ] Show error message
-
-### Validation
-
-* [ ] Prevent duplicate submissions
-* [ ] Validate GPS coordinates before sending
+* [x] Large emergency button
+* [x] GPS capture and permission handling
+* [x] Active alert detection and location updates
+* [x] Cancel active alert flow
+* [x] Loading and error states
+* [x] Auth guard and shared nav menu
 
 ---
 
-# Page 2: Emergency Contacts
+# Page 2: Login and Register
+
+## Files
+
+```text
+login.html
+register.html
+```
+
+## API Integration
+
+```http
+POST /auth/login
+POST /auth/signup
+```
+
+## Status
+
+* [x] Login form with JWT session storage
+* [x] Registration form
+* [x] Redirect to panic page after login
+
+---
+
+# Page 3: Emergency Contacts
 
 ## File
 
@@ -106,73 +126,26 @@ POST /api/v1/alerts/panic
 contacts.html
 ```
 
-## Goal
-
-Allow users to manage emergency contacts.
-
 ## API Integration
 
-### Get Contacts
-
 ```http
-GET /api/v1/contacts/user/{userId}
+GET    /contacts/user/{userId}
+GET    /contacts/{contactId}
+POST   /contacts
+PUT    /contacts/{contactId}
+DELETE /contacts/{contactId}
 ```
 
-### Create Contact
+## Status
 
-```http
-POST /api/v1/contacts
-```
-
-### Update Contact
-
-```http
-PUT /api/v1/contacts/{contactId}
-```
-
-### Delete Contact
-
-```http
-DELETE /api/v1/contacts/{contactId}
-```
-
-## UI Components
-
-### Contacts List
-
-* [ ] Create contacts table
-* [ ] Display name
-* [ ] Display phone number
-* [ ] Display email
-* [ ] Display relationship
-
-### Add Contact Form
-
-* [ ] Name field
-* [ ] Phone field
-* [ ] Email field
-* [ ] Relationship field
-
-### Edit Contact Form
-
-* [ ] Populate existing data
-* [ ] Submit updates
-
-### Delete Contact
-
-* [ ] Add delete button
-* [ ] Show confirmation modal
-* [ ] Refresh contact list
-
-### Validation
-
-* [ ] Validate phone number
-* [ ] Validate email address
-* [ ] Validate required fields
+* [x] List contacts
+* [x] Create, edit, and delete contacts
+* [x] Form validation and error handling
+* [x] Auth guard and shared nav menu
 
 ---
 
-# Page 3: Alert History
+# Page 4: Alert History
 
 ## File
 
@@ -180,81 +153,22 @@ DELETE /api/v1/contacts/{contactId}
 history.html
 ```
 
-## Goal
-
-Allow users to view previously submitted emergency alerts.
-
 ## API Integration
 
-### Get Alert History
-
 ```http
-GET /api/v1/alerts/user/{userId}
+GET /history/alerts/user/{userId}
 ```
 
-## UI Components
+## Status
 
-### Alert List
-
-Display:
-
-* Alert ID
-* Date
-* Time
-* Status
-
-### Tasks
-
-* [ ] Fetch alert history
-* [ ] Render alert cards/table
-* [ ] Sort newest first
-* [ ] Create empty-state message
-* [ ] Add loading state
-* [ ] Handle API failures
+* [x] Fetch and render alert history
+* [x] Sort newest first
+* [x] Empty state and loading handling
+* [x] Auth guard and shared nav menu
 
 ---
 
-# Page 4: Notification History
-
-## File
-
-```text
-notifications.html
-```
-
-## Goal
-
-Display notification delivery records.
-
-## API Integration
-
-### Get Notifications
-
-```http
-GET /api/v1/history/notifications?userId={userId}
-```
-
-## UI Components
-
-Display:
-
-* Channel
-* Recipient
-* Status
-* Date Sent
-
-### Tasks
-
-* [ ] Fetch notification logs
-* [ ] Display SMS notifications
-* [ ] Display Email notifications
-* [ ] Create status badges
-* [ ] Add loading state
-* [ ] Handle API errors
-
----
-
-# Page 5: Admin Dashboard| I am doing this part (Michelle Putter)
+# Page 5: Admin Dashboard
 
 ## File
 
@@ -262,67 +176,44 @@ Display:
 admin.html
 ```
 
-## Goal
+## API Integration
 
-Provide administrators with realtime emergency alert monitoring.
+```http
+GET /admin/alerts
+GET /admin/alerts?status={status}
+GET /admin/stats
+```
+
+## Status
+
+* [x] Statistics cards
+* [x] Active alerts table with status filter
+* [x] Admin-only nav link and auth guard
+* [ ] Realtime stream (`GET /admin/alerts/stream`) — not implemented
+
+---
+
+# Page 6: Live Alert (Public)
+
+## File
+
+```text
+alert/live.html
+```
+
+Served by nginx at `/alert/live/{alertId}`.
 
 ## API Integration
 
-### Active Alerts
-
 ```http
-GET /api/v1/admin/alerts/active
+GET /alerts/{alertId}
 ```
 
-### Statistics
+## Status
 
-```http
-GET /api/v1/admin/stats
-```
-
-### Realtime Stream
-
-```http
-GET /api/v1/admin/alerts/stream
-```
-
-## UI Components
-
-### Statistics Cards
-
-Display:
-
-* Total Alerts
-* Today's Alerts
-* Active Alerts
-
-### Active Alerts Table
-
-Display:
-
-* Alert ID
-* User ID
-* Latitude
-* Longitude
-* Status
-* Timestamp
-
-### Realtime Updates
-
-* [ ] Connect to SSE/WebSocket
-* [ ] Receive new alerts
-* [ ] Update dashboard automatically
-* [ ] Show connection status
-
-### Tasks
-
-* [ ] Create statistics section
-* [ ] Create active alerts table
-* [ ] Fetch active alerts
-* [ ] Fetch statistics
-* [ ] Subscribe to realtime stream
-* [ ] Handle stream disconnects
-* [ ] Handle API failures
+* [x] Public read-only alert view for SMS links
+* [x] Map embed and alert details
+* [x] No auth required
 
 ---
 
@@ -330,87 +221,52 @@ Display:
 
 ## api.js
 
-### Tasks
-
-* [ ] Create API base URL configuration
-* [ ] Create GET helper
-* [ ] Create POST helper
-* [ ] Create PUT helper
-* [ ] Create DELETE helper
-* [ ] Centralize error handling
-
----
+* [x] API base URL configuration
+* [x] GET, POST, PUT, PATCH, DELETE helpers
+* [x] Centralized auth header and error handling
 
 ## auth.js
 
-### Tasks
+* [x] JWT session storage
+* [x] Login/logout helpers
+* [x] Admin role detection
 
-* [ ] Store authenticated user ID
-* [ ] Retrieve user session
-* [ ] Handle logout
-* [ ] Protect admin page access
+## auth-guard.js
 
----
+* [x] Redirect unauthenticated users to login
 
-# Shared UI Components
+## components/nav-menu.js
 
-## Loader Component
-
-* [ ] Create reusable loading spinner
-* [ ] Show during API requests
-
-## Alert Component
-
-* [ ] Success notifications
-* [ ] Error notifications
-* [ ] Warning notifications
-
-## Modal Component
-
-* [ ] Confirmation dialog
-* [ ] Delete confirmation modal
-
-## Badge Component
-
-* [ ] Delivered
-* [ ] Failed
-* [ ] Pending
-* [ ] Active
+* [x] Shared navigation across authenticated pages
+* [x] Admin-only link visibility
 
 ---
 
 # Styling
 
-## Global Styling
+* [x] Tailwind CDN on main app pages (`tailwind-config.js`)
+* [x] Standalone CSS for login/register
+* [x] Shared global and nav-menu styles
+* [x] Mobile-friendly layouts
 
-* [ ] Responsive layout
-* [ ] Mobile-first design
-* [ ] Accessibility improvements
-* [ ] Consistent color palette
+---
 
-## Panic Button Styling
+# Still Pending
 
-* [ ] Large emergency button
-* [ ] High visibility colors
-* [ ] Touch-friendly sizing
-
-## Admin Dashboard Styling
-
-* [ ] Responsive tables
-* [ ] Statistics cards
-* [ ] Status indicators
+* [ ] Realtime admin dashboard updates (SSE/WebSocket)
+* [ ] Notification delivery history page (removed; no backend endpoint yet)
 
 ---
 
 # The frontend is considered complete when:
 
-* [ ] Panic alert page works
-* [ ] GPS location is captured successfully
-* [ ] Contacts can be created, edited and deleted
-* [ ] Alert history is visible
-* [ ] Notification history is visible
-* [ ] Admin dashboard displays active alerts
+* [x] Panic alert page works
+* [x] GPS location is captured successfully
+* [x] Contacts can be created, edited and deleted
+* [x] Alert history is visible
+* [x] Admin dashboard displays alerts and stats
+* [x] Login, register, and live alert pages work
+* [x] API integrations are complete for implemented endpoints
+* [x] Mobile responsiveness is implemented
+* [x] Error handling is implemented
 * [ ] Realtime updates function correctly
-* [ ] All API integrations are complete
-* [ ] Mobile responsiveness is implemented
-* [ ] Error handling is implemented

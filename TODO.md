@@ -19,46 +19,21 @@ The system will:
 5. Log the alert
 6. Display the alert on the admin dashboard
 
----
-
 ## Emergency Contacts
 
-Users can:
-
-* Add contacts
-* View contacts
-* Update contacts
-* Delete contacts
-
-Each contact may contain:
-
-* Name
-* Phone Number
-* Email Address
-* Relationship
-
----
+Users can add, view, update, and delete emergency contacts (name, phone, email, relationship).
 
 ## Alert History
 
-Users can view:
-
-* Previous alerts
-* Alert timestamps
-* Delivery status
-* Notification history
-
----
+Users can view previous alerts with timestamps and status.
 
 ## Admin Dashboard
 
-Administrators can:
+Administrators can view active alerts, filter by status, and see alert statistics.
 
-* View active alerts
-* Monitor incoming alerts in realtime
-* Filter alerts
-* View alert statistics
-* Monitor delivery status
+## Live Alert Page
+
+Public page at `/alert/live/{alertId}` linked from SMS messages.
 
 ---
 
@@ -66,188 +41,133 @@ Administrators can:
 
 ## Frontend
 
-* HTML5
-* CSS3
-* Vanilla JavaScript
+* HTML5, CSS3, Vanilla JavaScript
 * Fetch API
-* WebSockets
+* Tailwind CDN (main app pages)
 
 ## Backend
 
-REST API Services:
+* FastAPI microservices (Python)
+* MongoDB
+* nginx reverse proxy
+* Docker Compose
 
+## Services
+
+* User Management
+* Contact Management
 * Alert Service
-* Contact Management Service
-* SMS Service
-* Email Service
+* SMS Service (BulkSMS)
+* Email Service (Mailgun)
+* History Service
 * Admin Service
-
-## Database
-
-Suggested:
-
-* PostgreSQL
-* MySQL
-* SQLite (development)
 
 ---
 
 # Project Structure
 
 ```text
-frontend/
-│
+fontend/public/
 ├── index.html
+├── login.html
+├── register.html
 ├── contacts.html
 ├── history.html
 ├── admin.html
-│
+├── alert/live.html
 ├── css/
 ├── js/
-└── assets/
+└── components/
 
-backend/
-│
-├── alert-service/
-├── contact-service/
-├── sms-service/
-├── email-service/
-└── admin-service/
+backend/python/
+├── user_management_service/
+├── contact_management_service/
+├── alert_service/
+├── sms_service/
+├── email_service/
+├── history_service/
+└── admin_service/
 
-docs/
-│
-├── TODO_FRONTEND.md
-├── TODO_BACKEND.md
-└── examples/
+nginx/
+docker-compose.yml
+.env.example
 ```
 
 ---
 
-# API Base URL
+# API Routes (via nginx)
 
-```text
-https://gss-panic-api.pixieoflife.co.za
-```
-
----
-
-# Main API Endpoints
-
-## Panic Alert
+## Authentication
 
 ```http
-POST /api/v1/alerts/panic
+POST /auth/login
+POST /auth/signup
 ```
-
-Creates a new emergency alert.
-
----
 
 ## Contacts
 
 ```http
-GET    /api/v1/contacts/user/{userId}
-POST   /api/v1/contacts
-PUT    /api/v1/contacts/{contactId}
-DELETE /api/v1/contacts/{contactId}
+GET    /contacts/user/{userId}
+GET    /contacts/{contactId}
+POST   /contacts
+PUT    /contacts/{contactId}
+DELETE /contacts/{contactId}
 ```
 
----
-
-## Alert History
+## Alerts
 
 ```http
-GET /api/v1/alerts/user/{userId}
+POST  /alerts/panic
+GET   /alerts/active/me
+GET   /alerts/{alertId}
+PATCH /alerts/{alertId}/location
+POST  /alerts/{alertId}/cancel
 ```
 
----
-
-## Notification History
+## History
 
 ```http
-GET /api/v1/history/notifications
+GET /history/alerts/user/{userId}
 ```
 
----
-
-## Admin Dashboard
+## Admin
 
 ```http
-GET /api/v1/admin/alerts/active
-GET /api/v1/admin/stats
-GET /api/v1/admin/alerts/stream
+GET /admin/alerts
+GET /admin/alerts?status={status}
+GET /admin/stats
+```
+
+## Planned (not implemented)
+
+```http
+GET  /history/notifications
+GET  /admin/alerts/stream
+POST /sms/webhook
+POST /email/webhook
 ```
 
 ---
 
-# Development Workflow
+# Documentation
 
-## Frontend Team
-
-Responsible for:
-
-* User Interface
-* GPS Integration
-* API Consumption
-* Responsive Design
-* Realtime Dashboard Updates
-
-See:
-
-```text
-docs/TODO_FRONTEND.md
-```
-
----
-
-## Backend Team
-
-Responsible for:
-
-* REST APIs
-* SMS Delivery
-* Email Delivery
-* Alert Processing
-* Database Management
-* Realtime Alert Streaming
-
-See:
-
-```text
-docs/TODO_BACKEND.md
-```
-
----
-
-# Examples
-
-Task format used throughout project documentation:
-
-```text
-- [ ] Task not started
-- [x] Task completed
-- [ ] Task in progress | developer-name
-```
-
-Example:
-
-```text
-- [ ] Create panic button page
-- [x] Configure API client
-- [ ] Build admin dashboard | john
-```
+* Frontend details: `fontend/readme.md`
+* Backend details: `backend/readme.md`
 
 ---
 
 # The project is complete when:
 
-* [ ] Panic alerts can be triggered
-* [ ] GPS coordinates are captured correctly
-* [ ] SMS notifications are delivered
-* [ ] Email notifications are delivered
-* [ ] Emergency contacts can be managed
-* [ ] Alert history is accessible
+* [x] Panic alerts can be triggered
+* [x] GPS coordinates are captured correctly
+* [x] SMS notifications are delivered
+* [x] Email notifications are delivered
+* [x] Emergency contacts can be managed
+* [x] Alert history is accessible
+* [x] Admin dashboard displays alerts and stats
+* [x] Login, register, and live alert pages work
 * [ ] Admin dashboard receives realtime updates
-* [ ] Mobile responsiveness is complete
-* [ ] API documentation is available
+* [ ] Notification history is available
+* [x] Mobile responsiveness is largely complete
+* [ ] API documentation is published
 * [ ] Deployment is complete

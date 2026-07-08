@@ -1,7 +1,15 @@
-@media (max-width:500px) {
+@media (max-width: 500px) {
+  body {
+    padding: 16px;
+  }
+
   .login-container {
     padding: 20px;
     max-width: 90%;
+  }
+
+  .form {
+    margin: 12px;
   }
 }
 
@@ -43,22 +51,17 @@ body {
     font-weight: 500;
 }
 
-.login-container input[type="text"] {
-      width: 266px;
+.login-container input[type="text"],
+.login-container input[type="password"] {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
       padding: 12px;
       border: none;
       border-radius: 4px;
       font-size: 16px;
       cursor: pointer;
     }
-.login-container input[type="password"] {
-      width: 300px;
-      padding: 12px;
-      border: none;       
-      border-radius: 4px;
-      font-size: 16px;
-      cursor: pointer;
-}
 
     input:focus {
       outline: none;

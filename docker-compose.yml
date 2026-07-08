@@ -1,0 +1,43 @@
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - user_management
+      - sms_service
+      - email_service
+      - contact_management
+      - history_service
+      - alert_service
+      - admin_service
+
+  user_management:
+    build: ./backend/python/user_management_service
+    env_file: .env
+
+  sms_service:
+    build: ./backend/python/sms_service
+    env_file: .env
+
+  email_service:
+    build: ./backend/python/email_service
+    env_file: .env
+
+  contact_management:
+    build: ./backend/python/contact_management_service
+    env_file: .env
+
+  history_service:
+    build: ./backend/python/history_service
+    env_file: .env
+
+  alert_service:
+    build: ./backend/python/alert_service
+    env_file: .env
+
+  admin_service:
+    build: ./backend/python/admin_service
+    env_file: .env

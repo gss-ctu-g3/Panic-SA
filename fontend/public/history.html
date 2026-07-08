@@ -3,56 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
- <link rel="stylesheet" href="css/history.css"/>   
- <!--To add a title-->
- <title>Admin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/nav-menu.css" />
+  <link rel="stylesheet" href="css/history.css" />
+  <title>Alert History - Panic-SA</title>
 </head>
- 
 <body>
-<!--Navigation-->
-    <nav class="nav-container">
-        <button id="menu" class="menu">Menu</button>
-            <ul id="nav-links" class="nav-hidden">
-            <li><a href="index.html">Panic Page</a></li>
-            <li><a href="contacts.html">Emergency Contacts</a></li>
-            <li><a href="history.html">Alert History</a></li>
-            <li><a href="notifications.html">Notification History</a></li>
-            <li><a href="admin.html">Admin Dashboard</a></li>
-            </ul>
-    </nav>   
 
-  <br>
-  <br>
+<div id="alert" class="history-alert" style="display: none;"></div>
 
-  <!--Contacts Table-->
-  <div class="Alert-table">
+<div class="Alert-table responsive-table">
   <table>
-    <tr>
+    <thead>
+      <tr>
         <th>Alert ID</th>
         <th>Date</th>
         <th>Time</th>
         <th>Status</th>
-    </tr>
-    <tr>
-        <td>D250613</td>
-        <td>2025-06-22</td>
-        <td>23:00</td>
-        <td>Active</td>
-    </tr>
+        <th>Reason</th>
+      </tr>
+    </thead>
+    <tbody id="history-body"></tbody>
   </table>
 </div>
 
-  <!--Loader-->
 <div class="loader"></div>
 
-<!--footer-->
 <footer class="bottom-footer">
-    <ul>
-        <li>Panic-SA@2026 Copyright Reserved</li>
-    </ul>
+  Panic-SA &copy; 2026 Copyright Reserved
 </footer>
 
+<script src="js/auth.js"></script>
+<script src="js/auth-guard.js"></script>
+<script src="js/api.js"></script>
+<script src="components/nav-menu.js" defer></script>
 <script src="js/history.js"></script>
-
-    </body>
+</body>
 </html>

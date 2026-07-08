@@ -1,291 +1,214 @@
 # Backend
 
+FastAPI microservices under `backend/python/`, orchestrated by `docker-compose.yml` and proxied through nginx.
+
+Each service uses a `schemas.py` for FastAPI request/response models.
+
+---
+
+# Services
+
+| Service | Folder | nginx route |
+|---------|--------|-------------|
+| User Management | `user_management_service` | `/auth/` |
+| Contact Management | `contact_management_service` | `/contacts`, `/contacts/` |
+| Alert | `alert_service` | `/alerts/` |
+| SMS | `sms_service` | `/sms/` |
+| Email | `email_service` | `/email/` |
+| History | `history_service` | `/history/` |
+| Admin | `admin_service` | `/admin/` |
+
 ---
 
 # Phase 1: Project Setup
 
 ## Core Setup
 
-* [ ] Initialize backend project
-* [ ] Configure environment variables
-* [ ] Setup database connection
-* [ ] Configure authentication (JWT)
-* [ ] Setup logging
-* [ ] Setup validation middleware
-* [ ] Setup API documentation (Swagger/OpenAPI)
+* [x] Initialize backend project
+* [x] Configure environment variables (`.env.example`)
+* [x] Setup database connection (MongoDB)
+* [x] Configure authentication (JWT)
+* [x] Docker Compose and nginx wiring
+* [ ] Setup structured logging
+* [ ] Rate limiting
 
 ---
 
-# Phase 2: Database Design | Mthokozisi Vundla
+# Phase 2: Database Design
 
-## Users Table | Mthokozisi Vundla
+MongoDB database: `panic_sa`
 
-* [ ] Create users table
-* [ ] Add authentication fields
-* [ ] Add timestamps
+## Collections
 
-## Emergency Contacts Table | Mthokozisi Vundla
-
-* [ ] Create emergency_contacts table
-* [ ] Link contact to user
-* [ ] Store:
-
-  * [ ] Name
-  * [ ] Phone number
-  * [ ] Email
-  * [ ] Relationship
-
-## Alerts Table | Mthokozisi Vundla
-
-* [ ] Create alerts table
-* [ ] Store GPS coordinates
-* [ ] Store alert status
-* [ ] Store timestamps
-
-## Notification Logs Table | Mthokozisi Vundla
-
-* [ ] Create notification_logs table
-* [ ] Store channel type
-
-  * [ ] SMS
-  * [ ] EMAIL
-* [ ] Store delivery status
-* [ ] Store provider response
+* [x] `users` — authentication and profiles
+* [x] `contacts` — emergency contacts linked to users
+* [x] `alerts` — GPS coordinates, status, timestamps
+* [x] SMS delivery logs in `sms` database (`logs` collection)
 
 ---
 
-# Phase 3: Contact Management Service | Mthokozisi Vundla
+# Phase 3: User Management Service
 
-Base URL:
-
-/api/v1/contacts
+Base URL: `/auth`
 
 ## Endpoints
 
-### Create Contact | Mthokozisi Vundla
+* [x] `POST /auth/signup`
+* [x] `POST /auth/login`
 
-* [ ] POST /contacts
+---
 
-### Get User Contacts | Mthokozisi Vundla
+# Phase 4: Contact Management Service
 
-* [ ] GET /contacts/user/{userId}
+Base URL: `/contacts`
 
-### Get Single Contact | Mthokozisi Vundla
+## Endpoints
 
-* [ ] GET /contacts/{contactId}
+* [x] `POST /contacts`
+* [x] `GET /contacts/user/{user_id}`
+* [x] `GET /contacts/{contact_id}`
+* [x] `PUT /contacts/{contact_id}`
+* [x] `DELETE /contacts/{contact_id}`
 
-### Update Contact | Mthokozisi Vundla
-
-* [ ] PUT /contacts/{contactId}
-
-### Delete Contact | Mthokozisi Vundla
-
-* [ ] DELETE /contacts/{contactId}
 ## Validation
 
-* [ ] Validate phone numbers
-* [ ] Validate email addresses
-* [ ] Limit maximum contacts per user
+* [x] Validate phone numbers
+* [x] Validate email addresses
+* [x] Limit maximum contacts per user
 
 ---
 
-# Phase 4: SMS Service
+# Phase 5: SMS Service
 
-Base URL:
+Base URL: `/sms`
 
-/api/v1/sms
-
-## Provider Integration
-
-* [ ] Integrate Africa's Talking
-* [ ] OR Integrate Twilio
+Provider: BulkSMS
 
 ## Endpoints
 
-### Send SMS
-
-* [ ] POST /sms/send
-
-### Bulk SMS
-
-* [ ] POST /sms/bulk
-
-### Delivery Webhook
-
-* [ ] POST /sms/webhook
-
-## Features
-
-* [ ] Queue outgoing SMS
-* [ ] Handle failures
-* [ ] Retry failed messages
-* [ ] Log provider responses
+* [x] `POST /sms/bulk` — used by alert service
+* [x] `POST /sms/send` — implemented, not wired by other services
+* [ ] `POST /sms/webhook`
 
 ---
 
-# Phase 5: Email Service | c.Scholtz 
+# Phase 6: Email Service
 
-Base URL: | c.Scholtz 
+Base URL: `/email`
 
-/api/v1/emails | c.Scholtz 
+Provider: Mailgun
 
-## Provider Integration | c.Scholtz 
-* [ ] SMTP
-* [ ] OR SendGrid
-* [ ] OR SES
+## Endpoints
 
-## Endpoints | c.Scholtz 
+* [x] `POST /email/alert` — used by alert service
+* [x] `POST /email/consent` — implemented, not wired by other services
+* [ ] `POST /email/webhook`
 
-### Send Email | c.Scholtz 
+## Templates
 
-* [ ] POST /emails/send
-
-### Delivery Webhook | c.Scholtz 
-
-* [ ] POST /emails/webhook
-
-## Features | c.Scholtz 
-
-* [ ] Generate HTML email template
-* [ ] Generate Google Maps link
-* [ ] Track delivery status
-* [ ] Log provider responses
+* [x] `templates/alert.html`
+* [x] `templates/consent.html`
 
 ---
 
-# Phase 6: Alert Service Lesedi.R 
+# Phase 7: Alert Service
 
-Base URL:
+Base URL: `/alerts`
 
-/api/v1/alerts
+## Endpoints
 
-## Endpoints Lesedi Ramolotja
+* [x] `POST /alerts/panic`
+* [x] `GET /alerts/active/me`
+* [x] `GET /alerts/{alert_id}`
+* [x] `PATCH /alerts/{alert_id}/location`
+* [x] `POST /alerts/{alert_id}/cancel`
 
-### Trigger Panic Alert Lesedi Ramolotja
-
-* [ ] POST /alerts/panic
-
-### Get Alert Lesedi Ramolotja
-
-* [ ] GET /alerts/{alertId}
-
-### User Alert History Lesedi Ramolotja
-
-* [ ] GET /alerts/user/{userId}
-
-## Panic Flow Lesedi Ramolotja
+## Panic Flow
 
 When panic button is pressed:
 
-* [ ] Validate user
-* [ ] Capture GPS coordinates
-* [ ] Create alert record
-* [ ] Fetch emergency contacts
-* [ ] Generate Google Maps URL
-* [ ] Send SMS notifications
-* [ ] Send email notifications
-* [ ] Store notification logs
-* [ ] Notify admin dashboard
-* [ ] Return success response
+* [x] Validate user (JWT)
+* [x] Capture GPS coordinates
+* [x] Create alert record
+* [x] Fetch emergency contacts
+* [x] Send SMS notifications (bulk)
+* [x] Send email notifications
+* [ ] Notify admin dashboard in realtime
 
 ---
 
-# Phase 7: History Service | Dylan Van Der Velde
+# Phase 8: History Service
 
-Base URL:
-
-/api/v1/history
+Base URL: `/history`
 
 ## Endpoints
 
-### Alert History
+* [x] `GET /history/alerts/user/{user_id}` — response model in `schemas.py`
 
-* [ ] GET /history/alerts
+## Planned
 
-### Notification History
-
-* [ ] GET /history/notifications
-
-## Features
-
-* [ ] Filter by user
-* [ ] Filter by date
-* [ ] Filter by status
-* [ ] Pagination support
+* [ ] `GET /history/notifications`
+* [ ] Pagination and date/status filters
 
 ---
 
-# Phase 8: Admin Dashboard API
+# Phase 9: Admin Service
 
-Base URL:
-
-/api/v1/admin
+Base URL: `/admin`
 
 ## Endpoints
 
-### Active Alerts
+* [x] `GET /admin/alerts`
+* [x] `GET /admin/alerts?status={status}`
+* [x] `GET /admin/stats`
 
-* [ ] GET /admin/alerts/active
+## Planned
 
-### Alert Statistics
-
-* [ ] GET /admin/stats
-
-### Live Alert Feed
-
-* [ ] GET /admin/alerts/stream
-
-## Features
-
-* [ ] Real-time alert updates
-* [ ] Active alert count
-* [ ] Daily alert count
-* [ ] Alert status monitoring
+* [ ] `GET /admin/alerts/stream` — realtime feed
 
 ---
 
-# Phase 9: Security | Dylan Van Der Velde
+# Phase 10: Security
 
-* [ ] JWT authentication
-* [ ] Role-based access control
-* [ ] Admin authorization
-* [ ] Request validation
+* [x] JWT authentication
+* [x] Admin role authorization
+* [x] Request validation via Pydantic schemas
 * [ ] Rate limiting
-* [ ] Input sanitization
 * [ ] Secure webhook validation
 
 ---
 
-# Phase 10: Testing
+# Phase 11: Testing
 
-## Unit Tests
-
-* [ ] Contact service tests
-* [ ] SMS service tests
-* [ ] Email service tests
-* [ ] Alert service tests
-
-## Integration Tests
-
-* [ ] SMS provider integration
-* [ ] Email provider integration
-* [ ] Panic alert workflow
-
-## Load Testing
-
-* [ ] Multiple simultaneous alerts
-* [ ] Bulk notification testing
+* [ ] Unit tests per service
+* [ ] Integration tests for panic workflow
+* [ ] Load testing for bulk notifications
 
 ---
 
-# The project is considered complete when:
+# Environment Variables
 
-* [ ] Users can manage emergency contacts
-* [ ] Panic button triggers alert
-* [ ] GPS coordinates are stored
-* [ ] SMS notifications are sent
-* [ ] Email notifications are sent
-* [ ] Alert history is available
-* [ ] Admin can view active alerts
+See `.env.example` for required values:
+
+* `ENV_MONGO_URI`
+* `ENV_JWT_SECRET`
+* `MAX_CONTACTS_PER_USER`
+* SMS and Mailgun credentials
+* Inter-service URLs
+
+---
+
+# The backend is considered complete when:
+
+* [x] Users can register and log in
+* [x] Users can manage emergency contacts
+* [x] Panic button triggers alert
+* [x] GPS coordinates are stored
+* [x] SMS notifications are sent
+* [x] Email notifications are sent
+* [x] Alert history is available
+* [x] Admin can view alerts and stats
+* [ ] Notification history endpoint exists
+* [ ] Realtime admin stream exists
 * [ ] All REST endpoints are documented
 * [ ] Production deployment completed

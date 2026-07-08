@@ -3,77 +3,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
- <link rel="stylesheet" href="css/admin.css"/>   
- <!--To add a title-->
- <title>Admin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/nav-menu.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+  <title>Admin Dashboard - Panic-SA</title>
 </head>
-    
-<!--Navigation-->
-    <nav class="nav-container">
-        <button id="menu" class="menu">Menu</button>
-            <ul id="nav-links" class="nav-hidden">
-            <li><a href="index.html">Panic Page</a></li>
-            <li><a href="contacts.html">Emergency Contacts</a></li>
-            <li><a href="history.html">Alert History</a></li>
-            <li><a href="notifications.html">Notification History</a></li>
-            <li><a href="admin.html">Admin Dashboard</a></li>
-            </ul>
-    </nav>   
-   
-  <br>
-  <br>
-   <!--Active Alerts Table-->
-  <div class="Active-Alerts">
+<body>
+
+<div id="alert" class="admin-alert" style="display: none;"></div>
+
+<div class="admin-controls">
+  <label for="status-filter">Status:</label>
+  <select id="status-filter">
+    <option value="all">All</option>
+    <option value="active">Active</option>
+    <option value="cancelled">Cancelled</option>
+  </select>
+</div>
+
+<div class="Active-Alerts responsive-table">
   <table>
-    <tr>
+    <thead>
+      <tr>
         <th>Alert ID</th>
         <th>User ID</th>
         <th>Latitude</th>
         <th>Longitude</th>
         <th>Status</th>
         <th>TimeStamp</th>
-    </tr>
-    <tr>
-        <td>D250613</td>
-        <td>user_123</td>
-        <td>-28.13456</td>
-        <td>30.34578</td>
-        <td>Active</td>
-        <td>12:00  2026-06-20</td>
-    </tr>
+        <th>Map</th>
+      </tr>
+    </thead>
+    <tbody id="admin-alerts-body"></tbody>
   </table>
 </div>
 
-<br>
-<!--Total alerts card-->
- <div class="statistic-container">
-    <div class="stat-card">
-        <h3>Total Alerts:</h3>
-       <p class="total-alerts">320</p>
-    </div>
-
-<!--Today's alerts card-->
-    <div class="stat-card">
-        <h3>Todays Alerts:</h3>
-    <p class="today-alerts">120</p>
-    </div>
-
-<!--Active alerts card-->
-    <div class="stat-card">
-        <h3>Active Alerts:</h3>
-    <p class="active-alerts">2500</p>
-    </div>
+<div class="statistic-container">
+  <div class="stat-card">
+    <h3>Total Alerts:</h3>
+    <p class="total-alerts">0</p>
+  </div>
+  <div class="stat-card">
+    <h3>Todays Alerts:</h3>
+    <p class="today-alerts">0</p>
+  </div>
+  <div class="stat-card">
+    <h3>Active Alerts:</h3>
+    <p class="active-alerts">0</p>
+  </div>
 </div>
 
-<!--Loader-->
 <div class="loader"></div>
 
-<!--footer-->
 <footer class="bottom-footer">
-      Panic-sa@2026 Copyright reserved
-  </footer>
- 
-<script src="js/admin.js"></script>
+  Panic-SA &copy; 2026 Copyright Reserved
+</footer>
 
-    </body>
+<script src="js/auth.js"></script>
+<script src="js/auth-guard.js"></script>
+<script src="js/api.js"></script>
+<script src="components/nav-menu.js" defer></script>
+<script src="js/admin.js"></script>
+</body>
 </html>
