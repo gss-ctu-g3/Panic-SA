@@ -386,7 +386,8 @@ def send_email_notifications(
                 if str(data.get("status", "")).lower() != "success":
                     email_status = "failed"
             except Exception:
-                pass
+                # Non-JSON or malformed response from email service: treat as failed but continue processing.
+                email_status = "failed"
 
         for email in emails:
             log_notification(
