@@ -110,7 +110,7 @@ def sms_single(request: Request, sms_single_json: sms_payload_single):
             "message" : f"[PANICSA-API-SMS] | {count_success} sms's were sent."
         }
     
-    except:
+    except Exception:
         return {
             "status" : "failed",
             "message" : "[PANICSA-API-SMS] | Data could not be processed"
