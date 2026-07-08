@@ -248,7 +248,7 @@ def update_emergency_contact(
     Update an emergency contact
     """
     user_id = get_current_user_id(request)
-    contact_doc = get_owned_contact(request, contact_id, user_id)
+    get_owned_contact(request, contact_id, user_id)
 
     update_data = contact_json.model_dump(exclude_none=True)
 
