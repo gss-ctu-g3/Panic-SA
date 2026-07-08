@@ -190,7 +190,7 @@ def sms_bulk(request: Request, sms_multi_json: sms_payload_multi):
             "message" : f"[PANICSA-API-SMS] | {count_success} sms's were sent."
         }
 
-    except:
+    except Exception:
         return {
             "status" : "failed",
             "message" : "[PANICSA-API-SMS] | Data could not be processed"
