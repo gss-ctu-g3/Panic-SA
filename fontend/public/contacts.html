@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/nav-menu.css" />
+  <link rel="stylesheet" href="css/contacts.css" />
+  <title>Emergency Contacts - Panic-SA</title>
+</head>
+<body>
+
+<button id="add-button" class="add-button">Add Contact</button>
+
+<div id="alert" class="contact-alert" style="display: none;"></div>
+
+<div class="Contacts-table responsive-table">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+        <th>Relationship</th>
+        <th>Edit and delete</th>
+      </tr>
+    </thead>
+    <tbody id="contacts-body"></tbody>
+  </table>
+</div>
+
+<div class="contact-form">
+  <form id="add-contact">
+    <input type="hidden" id="contact-id" value="">
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Name">
+    <label for="phonenumber">Phone Number:</label>
+    <input type="text" id="phonenumber" inputmode="tel" maxlength="15" placeholder="0831234567 or +27831234567">
+    <label for="email">Email:</label>
+    <input type="email" id="email" placeholder="panic-sa@gmail.com">
+    <label for="relationship">Relationship:</label>
+    <input type="text" id="relationship" placeholder="Relationship">
+    <button type="submit" class="submit-button">submit</button>
+  </form>
+</div>
+
+<div class="loader"></div>
+
+<footer class="bottom-footer">
+  Panic-SA &copy; 2026 Copyright Reserved
+</footer>
+
+<script src="js/auth.js"></script>
+<script src="js/auth-guard.js"></script>
+<script src="js/api.js"></script>
+<script src="components/nav-menu.js" defer></script>
+<script src="js/contacts.js"></script>
+</body>
+</html>

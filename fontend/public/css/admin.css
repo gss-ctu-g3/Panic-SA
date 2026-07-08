@@ -1,0 +1,120 @@
+.admin-alert {
+  max-width: 480px;
+  margin: 0 auto 12px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background-color: var(--color-danger);
+  color: var(--color-text);
+  text-align: center;
+}
+
+.admin-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding-top: 20px;
+  color: var(--color-text);
+}
+
+.admin-controls label {
+  font-weight: bold;
+}
+
+.admin-controls select {
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+
+.Active-Alerts {
+  padding-top: 20px;
+  width: 100%;
+}
+
+.statistic-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 30px;
+  margin: 40px auto;
+  border-radius: 8px;
+  text-align: center;
+  width: fit-content;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.stat-card {
+  background-color: var(--color-text);
+  padding: 20px;
+  border-radius: 6px;
+  text-align: center;
+  width: 150px;
+  height: 100px;
+}
+
+.stat-card h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: var(--color-bg);
+}
+
+.stat-card p {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--color-danger);
+}
+
+.stat-card:hover {
+  background-color: var(--color-accent);
+}
+
+table {
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+  background-color: var(--color-surface);
+}
+
+th,
+td {
+  padding: 10px;
+  color: var(--color-text);
+}
+
+th {
+  background-color: var(--color-bg);
+}
+
+.Active-Alerts a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .statistic-container {
+    flex-direction: column;
+    width: 100%;
+    gap: 16px;
+    padding: 20px 16px;
+    margin: 20px auto;
+  }
+
+  .stat-card {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .admin-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-controls select {
+    width: 100%;
+  }
+}

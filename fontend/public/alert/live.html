@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/live-alert.css" />
+  <title>Live Alert - Panic-SA</title>
+</head>
+<body class="bg-bg text-text min-h-screen no-nav">
+
+  <main class="flex flex-col items-center justify-center min-h-[calc(100vh-80px)] px-4 py-10">
+    <h1 class="text-2xl md:text-3xl font-bold text-text mb-1 tracking-wide">Panic-SA</h1>
+    <p class="text-text-muted text-sm mb-8 text-center">Live emergency alert</p>
+
+    <div id="live-alert-card" class="live-alert-card">
+      <h2 id="live-alert-title" class="live-alert-title is-active">Emergency Alert</h2>
+      <p id="live-alert-subtitle" class="live-alert-subtitle">
+        Loading live alert details...
+      </p>
+
+      <div class="live-alert-meta-panel">
+        <p class="live-alert-meta">
+          Person: <strong id="live-alert-name">Loading...</strong>
+        </p>
+        <p class="live-alert-meta">
+          Status: <span id="live-alert-status" class="live-alert-status-badge is-loading">loading</span>
+        </p>
+        <p class="live-alert-meta">
+          Last updated: <strong id="live-alert-updated">Loading...</strong>
+        </p>
+      </div>
+
+      <div class="loader" aria-hidden="true"></div>
+
+      <div class="live-alert-map-section">
+        <p class="live-alert-map-label">Live location</p>
+
+        <p id="live-alert-map-placeholder" class="live-alert-map-placeholder" style="display: none;">
+          Location not available yet.
+        </p>
+
+        <iframe
+          id="live-alert-map"
+          class="live-alert-map"
+          title="Live alert map"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          style="display: none;"
+        ></iframe>
+
+        <a
+          id="live-alert-link"
+          class="live-alert-link"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="display: none;"
+        >
+          Open in Google Maps
+        </a>
+      </div>
+
+      <div id="live-alert-message" class="live-alert-message" style="display: none;"></div>
+    </div>
+  </main>
+
+  <footer class="bottom-footer">
+    Panic-SA &copy; 2026 Copyright Reserved
+  </footer>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/live-alert.js"></script>
+</body>
+</html>
