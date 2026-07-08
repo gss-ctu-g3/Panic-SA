@@ -4,16 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="../js/tailwind-config.js"></script>
-  <link rel="stylesheet" href="../css/global.css" />
-  <link rel="stylesheet" href="../css/live-alert.css" />
+  <script src="/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/live-alert.css" />
   <title>Live Alert - Panic-SA</title>
 </head>
 <body class="bg-bg text-text min-h-screen no-nav">
 
-  <main class="flex flex-col items-center justify-center min-h-[calc(100vh-80px)] px-4 py-10">
-    <h1 class="text-2xl md:text-3xl font-bold text-text mb-1 tracking-wide">Panic-SA</h1>
-    <p class="text-text-muted text-sm mb-8 text-center">Live emergency alert</p>
+  <main class="flex flex-col items-center justify-center min-h-screen px-4 py-10">
+    <h1 class="text-3xl md:text-4xl font-bold text-text mb-2 tracking-wide">Panic-SA</h1>
+    <p class="text-text-muted text-sm md:text-base mb-10 text-center max-w-xs">Live emergency alert</p>
 
     <div id="live-alert-card" class="live-alert-card">
       <h2 id="live-alert-title" class="live-alert-title is-active">Emergency Alert</h2>
@@ -67,11 +67,7 @@
     </div>
   </main>
 
-  <footer class="bottom-footer">
-    Panic-SA &copy; 2026 Copyright Reserved
-  </footer>
-
-  <script src="../js/api.js"></script>
-  <script src="../js/live-alert.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/live-alert.js"></script>
 </body>
 </html>

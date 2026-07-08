@@ -1,3 +1,7 @@
+body.no-nav {
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+}
+
 .live-alert-card {
   width: 100%;
   max-width: 640px;
@@ -137,7 +141,7 @@
 
 .live-alert-link:hover {
   background-color: var(--color-surface);
-  border-color: var(--color-text-muted);
+  border-color: var(--color-accent);
 }
 
 .live-alert-message {
@@ -151,6 +155,7 @@
 
 .live-alert-message.error {
   border-color: var(--color-danger);
+  color: var(--color-danger);
 }
 
 .live-alert-message.ended {

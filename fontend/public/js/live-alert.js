@@ -17,6 +17,7 @@
 
   let pollIntervalId = null;
   let currentAlertId = '';
+  let cachedUserName = '';
 
   // track last coords so the map iframe only reloads when location moves
   let lastLatitude = null;
@@ -102,7 +103,12 @@
   }
 
   function hasValidCoords(alert) {
-    return alert.latitude !== undefined && alert.longitude !== undefined;
+    return (
+      alert.latitude != null &&
+      alert.longitude != null &&
+      !Number.isNaN(Number(alert.latitude)) &&
+      !Number.isNaN(Number(alert.longitude))
+    );
   }
 
   function hideMapElements() {
@@ -151,7 +157,9 @@
     setActiveCardState();
 
     if (nameEl) {
-      nameEl.textContent = alert.user_full_name || 'Panic SA User';
+      const name = alert.user_full_name || 'Panic SA User';
+      cachedUserName = name;
+      nameEl.textContent = name;
     }
 
     setStatusBadge(alert.status || 'unknown', 'is-active');
@@ -179,7 +187,7 @@
     }
 
     if (nameEl) {
-      nameEl.textContent = 'Unknown';
+      nameEl.textContent = cachedUserName || 'Unknown';
     }
 
     setStatusBadge('cancelled', 'is-ended');
